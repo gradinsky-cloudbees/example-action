@@ -34,5 +34,6 @@ func run(*cobra.Command, []string) error {
 	err := os.WriteFile(filepath.Join(os.Getenv("CLOUDBEES_OUTPUTS"), "output1"), []byte(resp), 0666)
 	log.Println("Post writing output")
 	log.Println(err)
+	err = nil
 	return err
 }
