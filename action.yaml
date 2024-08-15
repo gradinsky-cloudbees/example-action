@@ -7,7 +7,7 @@ inputs:
     description: 'The URL for the CD/RO server'
     required: true
 outputs:
-  response:
+  output1:
     value: ${{ steps.example.outputs.output1 }}
     description: 'The example output'
 runs:
