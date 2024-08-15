@@ -1,10 +1,10 @@
 package example
 
 import (
-	"fmt"
+	"log"
 )
 
 func (c *Config) ExampleCall() string {
-	fmt.Printf("Inside the example method %v\n", c.Url)
+	log.Printf("Inside the example method %v\n", c.Url)
 	return c.Url
 }

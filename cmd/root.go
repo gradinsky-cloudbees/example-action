@@ -32,5 +32,6 @@ func run(*cobra.Command, []string) error {
 	log.Println("Inside the run method")
 	//Write output when successful, it parses the response body
 	err := os.WriteFile(filepath.Join(os.Getenv("CLOUDBEES_OUTPUTS"), "output1"), []byte(resp), 0666)
+	log.Println("Post writing output")
 	return err
 }
