@@ -1,0 +1,35 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: My workflow
+on:
+  push:
+    branches:
+      - "**"
+  workflow_dispatch:
+jobs:
+  build:
+    steps:
+      - uses: cloudbees-io/checkout@v1
+        name: Git checkout
+        with:
+          provider: github
+          repository: gradinsky-cloudbees/example-action
+          ref: main
+          token: ${{ secrets.gradinsky_github_token }}
+      - uses: docker://golang:1.22.1
+        name: Verify
+        shell: sh
+        run: go build .
+      - uses: cloudbees-io/configure-aws-credentials@v1
+        name: AWS login
+        with:
+          aws-access-key-id: ${{ secrets.gradinsky_aws_access_key }}
+          aws-secret-access-key: ${{ secrets.gradinsky_aws_secret_key }}
+          aws-region: us-east-1
+          mask-aws-account-id: "true"
+          aws-session-token: ${{ secrets.gradinsky_aws_session_token }}
+      - uses: cloudbees-io/kaniko@v1
+        name: Build image
+        with:
+          dockerfile: Dockerfile
+          destination: public.ecr.aws/r1n1q0e5/gradinsky/example-action:latest
