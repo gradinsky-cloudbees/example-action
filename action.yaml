@@ -8,13 +8,13 @@ inputs:
     required: true
 outputs:
   response:
-    value: ${{ steps.rest.outputs.output1 }}
+    value: ${{ steps.example-action.outputs.output1 }}
     description: 'The example output'
 runs:
   using: composite
   steps:
     - name: Perform REST API request
-      id: rest
+      id: example-action
       uses: docker://public.ecr.aws/r1n1q0e5/gradinsky/example-action:latest
       with:
         entrypoint: example-action
