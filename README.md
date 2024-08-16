@@ -16,14 +16,14 @@ The [root.go](./cmd/root.go) inside of the cmd package is the command line inter
 Output Parameters
 Any job that needs to write an output file needs to write to the environment variable CLOUDBEES_OUTPUTS/nameHere and specified in the actions.yaml
 
-Example writing the rest api response to the output file called “response”
+#### Example writing a string (bodyString) to the output file called "response". 
 ````go
 os.WriteFile(filepath.Join(os.Getenv("CLOUDBEES_OUTPUTS"), "response"), []byte(bodyString), 0666)
 ````
 
 
 
-### Example from [action.yaml](action.yaml) to set as a usable object in platform:
+#### Example from [action.yaml](action.yaml) to set a usable output parameter:
 ````yaml
 outputs:
   response:
