@@ -23,12 +23,12 @@ os.WriteFile(filepath.Join(os.Getenv("CLOUDBEES_OUTPUTS"), "response"), []byte(b
 
 
 
-### Example from actions.yaml to set as a useable object in platform:
+### Example from [action.yaml](action.yaml) to set as a usable object in platform:
 ````yaml
 outputs:
-response:
-value: ${{ steps.rest.outputs.response }}
-description: 'The JSON response from the API request'
+  response:
+    value: ${{ steps.rest.outputs.response }}
+    description: 'The JSON response from the API request'
 ````
 
 
