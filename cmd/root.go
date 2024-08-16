@@ -3,7 +3,6 @@ package cmd
 import (
 	"github.com/gradinsky-cloudbees/example-action/internal/example"
 	"github.com/spf13/cobra"
-	"log"
 	"os"
 	"path/filepath"
 )
@@ -29,11 +28,7 @@ func Execute() error {
 
 func run(*cobra.Command, []string) error {
 	resp := cfg.ExampleCall()
-	log.Println("Inside the run method")
-	//Write output when successful, it parses the response body
+	//Write output when successful, it writes the response to the output "output1" which can be used in a later step
 	err := os.WriteFile(filepath.Join(os.Getenv("CLOUDBEES_OUTPUTS"), "output1"), []byte(resp), 0666)
-	log.Println("Post writing output")
-	log.Println(err)
-	err = nil
 	return err
 }
