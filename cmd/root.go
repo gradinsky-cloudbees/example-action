@@ -17,7 +17,7 @@ var (
 	cfg example.Config
 )
 
-// These are the input flags. Created with internal/rest-api/types.go
+// These are the input flags. Created with internal/example/types.go
 func init() {
 	cmd.Flags().StringVar(&cfg.Url, "url", "", "Enter some URL here")
 }
@@ -28,7 +28,7 @@ func Execute() error {
 
 func run(*cobra.Command, []string) error {
 	resp := cfg.ExampleCall()
-	//Write output when successful, it writes the response to the output "output1" which can be used in a later step
+	// Write output when successful, it writes the response to the output "output1" which can be used in a later step
 	err := os.WriteFile(filepath.Join(os.Getenv("CLOUDBEES_OUTPUTS"), "output1"), []byte(resp), 0666)
 	return err
 }
