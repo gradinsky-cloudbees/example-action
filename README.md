@@ -2,9 +2,9 @@
 
 Custom actions in platform rely on building an executable that takes CLI arguments, packaging it with a Dockerfile, and using that in the action.yaml
 
-This example uses GO with Cobra for CLI input, Dockerfile for when being built by the platform, and Makefile for testing/publishing new versions. The action.yaml defines what the custom action does when utilized in a workflow. Additionally, you will need a public ECR to store the images. Creating custom actions with code can be done with your preferred language.
+This example uses GO with Cobra for CLI input, Dockerfile to build it, and Makefile for testing/publishing new versions. The action.yaml defines what the custom action does when utilized in a workflow. Additionally, you will need a public ECR to store the images. Creating custom actions with code can be done with your preferred language.
 
-
+This example shows you how to use the Docker image within a custom action and how to write output for a future job/step to use.
 
 ### Needed items
 
