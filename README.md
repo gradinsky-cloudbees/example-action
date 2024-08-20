@@ -1,8 +1,10 @@
 # This is an example custom action for the CloudBees Platform
 
-GO backed custom actions in platform rely on building an executable that takes CLI arguments, gets packaged in a Dockerfile, and using that in the action.yaml
+Custom actions in platform rely on building an executable that takes CLI arguments, packaging it with a Dockerfile, and using that in the action.yaml
 
-This uses Cobra for CLI input, Dockerfile for when being built by the platform, and Makefile for testing/publishing new versions. The action.yaml defines what the custom action does when utilized in a workflow. Additionally, you will need a public ECR to store the images. This project could be made more simple by passing in a config to the ExecuteApiCall method in rest.go instead of all of the input parameters, but I intentionally didn’t do that so that the project could be easily used as a library by other actions in case they need to perform API requests.
+This example uses GO with Cobra for CLI input, Dockerfile for when being built by the platform, and Makefile for testing/publishing new versions. The action.yaml defines what the custom action does when utilized in a workflow. Additionally, you will need a public ECR to store the images. Creating custom actions with code can be done with your preferred language.
+
+
 
 ### Needed items
 
