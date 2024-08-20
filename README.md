@@ -35,10 +35,4 @@ outputs:
 ### Action
 The action.yaml defines the inputs, outputs, and what is run by the custom action when executed. Note that both the CLI run and the action definition are in the same project. Because this is a GO based action it will download the image built from the Dockerfile and defined in [my-workflow.yaml](.cloudbees/workflows/my-workflow.yaml).
 
-### Makefile
-Used for preparing/publishing new versions of the action along with running tests. Requires having [next-version.go](.cloudbees/release/next-version.go) to work
-
-### Dockerfile
-Defines the artifact to be built for use in the custom action along with the entry point
-
 
